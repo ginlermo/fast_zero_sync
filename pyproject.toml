@@ -7,7 +7,8 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "3.12.*"
-fastapi = "^0.112.1"
+fastapi = {extras = ["standard"], version = "^0.112.2"}
+sqlalchemy = "^2.0.34"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -22,6 +23,7 @@ addopts = '-p no:warnings'
 
 [tool.taskipy.tasks]
 run = 'fastapi dev fast_zero/app.py'
+run_lan = 'fastapi dev fast_zero/app.py --host 0.0.0.0'
 pre_test = 'task lint'
 test = 'pytest -s -x --cov=fast_zero -vv'
 post_test = 'coverage html'
