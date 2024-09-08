@@ -5,10 +5,6 @@ class Message(BaseModel):
     message: str
 
 
-class HtmlResponse(BaseModel):
-    html_content: str
-
-
 class UserSchema(BaseModel):
     username: str
     email: EmailStr
@@ -24,3 +20,12 @@ class UserPublic(BaseModel):
 
 class UserList(BaseModel):
     users: list[UserPublic]
+
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+
+class TokenData(BaseModel):
+    username: str | None = None
