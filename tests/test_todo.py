@@ -128,7 +128,8 @@ def test_list_todos_return_combined_todos_and_return_5(
     session.commit()
 
     response = client.get(
-        "/todos/?title=Test Todo 1&description=Test todo description 1&state=done",
+        "/todos/?title=Test Todo 1&description=Test todo description "
+        "1&state=done",
         headers={"Authorization": f"Bearer {token}"},
     )
 

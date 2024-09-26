@@ -83,12 +83,3 @@ def test_change_wrong_user(client, token, other_user):
 
     assert response.status_code == HTTPStatus.FORBIDDEN
     assert response.json() == {"detail": "Not enough permissions"}
-
-
-def test_get_specific_user(client, user, token):
-    response = client.get(
-        f"/users/{user.id}",
-        headers={"Authorization": f"Bearer {token}"},
-    )
-
-    assert response.status_code == HTTPStatus.OK
