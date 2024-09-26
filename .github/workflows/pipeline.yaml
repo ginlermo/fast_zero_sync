@@ -19,3 +19,6 @@ jobs:
 
       - name: install dependencies
         run: poetry install
+
+      - name: execute tests
+        run: poetry run task test
